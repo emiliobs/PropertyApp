@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PropertyXamarinApp.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,6 +17,20 @@ namespace PropertyXamarinApp
         public MainPage()
         {
             InitializeComponent();
+            this.BindingContext = this;
+        }
+
+        public List<PropertyType> propertyTypesList => GetPropertyType();
+        public List<Property> PropertyList => GetProperties();      
+
+        private List<PropertyType> GetPropertyType()
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<Property> GetProperties()
+        {
+            throw new NotImplementedException();
         }
     }
 }
