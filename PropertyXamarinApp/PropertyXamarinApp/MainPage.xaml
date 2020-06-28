@@ -3,19 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="PropertyXamarinApp.MainPage"
              Title="Main Page.">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Frame BackgroundColor="#512bd4" Padding="0,48,0,0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" Padding="0,0,0,24"/>
+    <Grid BackgroundColor="#f9f9f9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame HasShadow="True" Margin="0,20" Padding="0" HeightRequest="40" HorizontalOptions="FillAndExpand">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Source="search.png" HeightRequest="20" WidthRequest="20" Margin="20,0"></Image>         
+                <Entry Grid.Column="1" Placeholder="Search" TextColor="Black" FontSize="15" FontFamily="ThemeFontRegular"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="Center">                    
+                </Entry>
+                <Image Grid.Column="2"  Source="filter.png" HeightRequest="20" WidthRequest="20" Margin="20,0"></Image>
+            </Grid>
         </Frame>
-        <StackLayout Padding="16,24,16,24">
-            <Label Text="Start developing now" FontSize="Title"/>
-            <Label Text="Make changes to a XAML file and save it to see your UI update in your running app. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
+        <StackLayout Grid.Row="1">
+            <Label Text="Property Type" TextColor="#515151" FontSize="15" FontFamily="ThemeFontBold"></Label>
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding PropertyTypeList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <pv:PancakeView CornerRadius="15" Margin="5,10,0,10" HasShadow="True" BackgroundColor="White">
+                                
+                            </pv:PancakeView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
-    </StackLayout>
+    </Grid>
 
 </ContentPage>
