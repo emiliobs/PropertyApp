@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: ExportFont("NunitoSans-Bold.ttf", Alias = "ThemeFontRegular")]
+[assembly: ExportFont("NunitoSans-Regular.ttf", Alias = "ThemeFontMedium")]
+[assembly: ExportFont("NunitoSans-SemiBold.ttf", Alias = "ThemeFontBold")]
 namespace PropertyXamarinApp
 {
     public partial class App : Application
