@@ -54,5 +54,30 @@ namespace PropertyXamarinApp
             var property = (sender as View).BindingContext as Property;
             await Navigation.PushAsync(new DetailsPage(property));
         }
+
+        private void SelectStates(object sender, EventArgs e)
+        {
+            var view = sender as View;
+            var parent = view.Parent as StackLayout;
+
+            foreach (var child in parent.Children)
+            {
+                VisualStateManager.GoToState(child, "Normal");
+                ChangeTextColor(child, "#707070");
+            }
+
+            VisualStateManager.GoToState(view, "Selected");
+            ChangeTextColor(view, "#fe93c5");
+
+        }
+
+        private void ChangeTextColor(View child, string hexColor)
+        {
+            var txtControl = child.FindByName<Label>("PropertyTypeName");
+            if (txtControl != null)
+            {
+                txtControl.TextColor = Color.FromHex(hexColor);
+            }
+        }
     }
 }

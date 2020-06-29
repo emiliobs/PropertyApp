@@ -31,7 +31,7 @@ namespace PropertyXamarinApp.Views
         {
             base.OnAppearing();
 
-            DetailsView.TranslationY = 800;
+            DetailsView.TranslationY = 500;
             DetailsView.TranslateTo(0, 0, 500, Easing.SinInOut);
         }
     }

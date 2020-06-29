@@ -38,7 +38,31 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <pv:PancakeView CornerRadius="15" Margin="5,10,0,10" HasShadow="True" BackgroundColor="White">
-                                
+                                <pv:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectStates"></TapGestureRecognizer>
+                                </pv:PancakeView.GestureRecognizers>
+                            <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundGradientStops">
+                                                    <Setter.Value>
+                                                        <pv:GradientStopCollection>
+                                                            <pv:GradientStop Color="#ff4157" Offset="0"></pv:GradientStop>
+                                                            <pv:GradientStop Color="#ff4359" Offset="0.5"></pv:GradientStop>
+                                                            <pv:GradientStop Color="#fe93c5" Offset="1"></pv:GradientStop>
+                                                        </pv:GradientStopCollection> 
+                                                    </Setter.Value>
+                                                </Setter>                                               
+                                                <Setter Property="BackgroundGradientAngle" Value="270"></Setter>                                               
+                                            </VisualState.Setters>                                            
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
                                 <Label x:Name="PropertyTypeName" Padding="20,5" Text="{Binding TypeName}" TextColor="#077070"
                                        FontSize="15" FontFamily="ThemeFontRegular">                                    
                                 </Label>
