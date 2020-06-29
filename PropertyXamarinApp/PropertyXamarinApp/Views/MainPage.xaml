@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:st="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             st:SharedTransitionNavigationPage.TransitionSelectedGroup="products"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="PropertyXamarinApp.MainPage"
@@ -59,7 +61,7 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="PropertySelected"/>
                                 </Grid.GestureRecognizers>
-                                <Image Source="{Binding Image}" HeightRequest="155" Aspect="AspectFill"></Image>
+                                <Image Source="{Binding Image}" HeightRequest="155" Aspect="AspectFill" st:Transition.Name="PropertyImage"></Image>
                                 <Image Source="bookmark.png" HorizontalOptions="End" Margin="12" HeightRequest="16" 
                                        VerticalOptions="Start"></Image>
                                 <Grid VerticalOptions="End" Margin="15">

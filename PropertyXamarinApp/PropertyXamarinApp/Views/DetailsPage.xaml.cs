@@ -27,5 +27,12 @@ namespace PropertyXamarinApp.Views
             this.Navigation.PopAsync();
 
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            DetailsView.TranslationY = 800;
+            DetailsView.TranslateTo(0, 0, 500, Easing.SinInOut);
+        }
     }
 }
