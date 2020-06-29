@@ -36,6 +36,7 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <pv:PancakeView CornerRadius="15" Margin="5,10,0,10" HasShadow="True" BackgroundColor="White">
+                                
                                 <Label x:Name="PropertyTypeName" Padding="20,5" Text="{Binding TypeName}" TextColor="#077070"
                                        FontSize="15" FontFamily="ThemeFontRegular">                                    
                                 </Label>
@@ -55,6 +56,9 @@
                                     <RowDefinition Height="Auto"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="PropertySelected"/>
+                                </Grid.GestureRecognizers>
                                 <Image Source="{Binding Image}" HeightRequest="155" Aspect="AspectFill"></Image>
                                 <Image Source="bookmark.png" HorizontalOptions="End" Margin="12" HeightRequest="16" 
                                        VerticalOptions="Start"></Image>

@@ -1,4 +1,5 @@
 ﻿using PropertyXamarinApp.Models;
+using PropertyXamarinApp.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,12 @@ namespace PropertyXamarinApp
                new Property { Image = "apt3.png", Address = "2112 Anthony Way, LA", Location = "Califonia", Price = "$900/mo", 
                               Bed = "2 Bed", Bath = "2 Bath", Space = "1200 sqft", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum est ultricies integer quis. Iaculis urna id volutpat lacus laoreet. Mauris vitae ultricies leo integer malesuada. Ac odio tempor orci dapibus ultrices in. Egestas diam in arcu cursus euismod. Dictum fusce ut" },
             };
+        }
+
+        private async void PropertySelected(object sender, EventArgs e)
+        {
+            var property = (sender as View).BindingContext as Property;
+            await Navigation.PushAsync(new DetailsPage(property));
         }
     }
 }
